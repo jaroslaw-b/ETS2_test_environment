@@ -19,7 +19,7 @@ display2control = multiprocessing.Queue()
 
 controller = VirtualJoystick.VirtualJoystick(display2control)
 capturer = ScreenCapture.ScreenCapture(controller.ETS_window_coords[1], controller.ETS_window_coords[0], controller.ETS_window_coords[2], controller.ETS_window_coords[3], capturer2process)
-process = Process.Process(capturer2process, process2display)
+process = Process.Process(capturer2process, process2display, "jarcyk")
 displayer = Display.Display(process2display, display2control)
 
 controller.start()

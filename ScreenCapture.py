@@ -18,7 +18,7 @@ class ScreenCapture(multiprocessing.Process):
     def run(self):
         while True:
             q_size = self._outq.qsize()
-            time.sleep(q_size*1)
+            time.sleep(q_size*0.01)
             start_time = time.time()
             with mss.mss() as sct:
                 data = sct.grab(self.monitor)
