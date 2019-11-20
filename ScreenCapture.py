@@ -7,10 +7,12 @@ from PIL import Image
 
 class ScreenCapture(multiprocessing.Process):
     img = None
-
+    DEBUG = 1
     def __init__(self, _top, _left, _width, _height, outq):
         self.monitor = {"top": _top+30, "left": _left, "width": _width, "height": _height-30}
-
+        if self.DEBUG:
+            print("ETS2 window coords: \n")
+            print(self.monitor)
         multiprocessing.Process.__init__(self)
         self._outq = outq
         self.deamon = True
